@@ -1,14 +1,10 @@
 ﻿# Interactive COVID-19 Dashboard
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)
-![Data Source](https://img.shields.io/badge/Data-Our%20World%20in%20Data-1D4ED8)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://covid19-case-study.streamlit.app/)
 
 An interactive **Streamlit** application for exploring global COVID-19 data with maps, key indicators, country comparisons, and time-series analysis.
 
-## Preview Image
-
-![SARS-CoV-2 Illustration](https://upload.wikimedia.org/wikipedia/commons/3/35/SARS-CoV-2_without_background.png)
 
 ## Features
 
@@ -52,11 +48,3 @@ Then open the URL shown in the terminal (usually `http://localhost:8501`).
 - The app automatically looks for the dataset in `data/`.
 - The app currently caps the displayed date range at `2024-08-01`.
 
-## Screenshots (Optional)
-
-You can add screenshots from the app in `docs/images` and reference them here, for example:
-
-```md
-![Dashboard Overview](docs/images/dashboard-overview.png)
-![Global Map](docs/images/global-map.png)
-```
