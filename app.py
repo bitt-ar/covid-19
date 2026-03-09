@@ -19,7 +19,6 @@ DATA_FILENAME = "owid-covid-data.csv"
 
 
 def resolve_data_path() -> tuple[Path | None, list[Path]]:
-    # Support both Linux-style (/mnt/data) and local project paths.
     candidates = [
         Path("/data") / DATA_FILENAME,
         Path("data") / DATA_FILENAME,
@@ -85,7 +84,6 @@ def get_latest_snapshot(df: pd.DataFrame) -> pd.DataFrame:
 @st.cache_data(show_spinner=False)
 def get_geo_frame(df: pd.DataFrame, as_of_date: pd.Timestamp, metric: str) -> pd.DataFrame:
     base = df[(df["continent"].notna()) & (df["date"] <= as_of_date)].copy()
-    # Keep the latest non-null metric row per country (not just the latest row overall).
     base = base[base[metric].notna()]
     latest = base.groupby("location", as_index=False).tail(1)
     latest = latest.dropna(subset=["iso_code"])
@@ -439,8 +437,6 @@ with left:
     if map_df.empty:
         st.info("Not enough data to render the map.")
     else:
-        # Use unique helper columns for hover custom_data to avoid duplicate-name errors
-        # when metric_for_map matches one of the summary fields (e.g., total_cases).
         map_plot_df = map_df.assign(
             __metric_value=map_df[metric_for_map],
             __total_cases=map_df["total_cases"],
